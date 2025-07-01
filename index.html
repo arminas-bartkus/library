@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/styles.css">
     
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 
 </head>
@@ -17,6 +17,10 @@
     <h1>The Library</h1>
     
     <button class = "addBook" type = "button">Add to the Collection</button>
+
+   
+
+
 
     <table>
 
@@ -44,5 +48,35 @@
 
 
     </table>
+
+
+     <dialog class="addBookForm">
+    
+        <form method="dialog">
+        
+            <label for="bookTitle">Title:</label>
+            <input type="text" name="inputedBookTitle" id = "bookTitle" placeholder="Salt, Fat, Acid, Heat" required>
+
+            <label for="bookAuthor">Author:</label>
+            <input type="text" name = "inputedAuthor" id = "bookAuthor" placeholder="Samin Nosrat">
+
+            <label for="noOfPages"> Page Count:</label>
+            <input type="number" step="1" id = "noOfPages" name = "inputedPageCount" placeholder="480">
+
+            <fieldset>
+                <legend>Have you Read it?</legend>
+                
+                <label for="userRead">Yes</label>
+                <input type="radio" id = "userRead" name = "hasUserRead" checked>
+
+                <label for="userNotRead">No</label>
+                <input type="radio" id = "userNotRead" name="hasUserRead">
+            </fieldset>
+
+        <button class = "submitBook" type="submit">Add Book</button>
+        </form>
+
+
+    </dialog>
 </body>
 </html>

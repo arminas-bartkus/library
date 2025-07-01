@@ -1,9 +1,12 @@
 bookArr = [];
 
-addBook = document.querySelector(".addBook");
+revealAddBookForm = document.querySelector(".addBook");
+addBookForm = document.querySelector(".addBookForm");
 
-addBook.addEventListener("click", function () {
-
+revealAddBookForm.addEventListener("click", function () {
+    addBookForm.showModal();
 });
 
+function CreateBookListing() {
 
+}
