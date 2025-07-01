@@ -28,23 +28,22 @@ function Book(title, author, numberOfPages, isRead) {
     this.isRead = isRead;
 }
 
-// function createBookListing(title, author, numberOfPages, isRead) {
-//     //create Unique ID
-// }
-
 submitFormButton.addEventListener("click", function() {
-        let bookIsRead = false;
-        let fetchedBookTitle = bookTitleInput.value;
-        let fetchedBookAuthor = bookAuthorInput.value;
-        let fetchedPageCount = numberOfPagesInput.value;
-    
-        if (isBookReadInput.checked) {
-            bookIsRead = true;
-    }
-        else {}
-
-    var1 = new Book(fetchedBookTitle, fetchedBookAuthor, fetchedPageCount, bookIsRead);
-
-    console.log(var1)
-
+    addBookToLibrary()
 });
+
+function addBookToLibrary() {
+        
+    let bookIsRead = false;
+    let fetchedBookTitle = bookTitleInput.value;
+    let fetchedBookAuthor = bookAuthorInput.value;
+    let fetchedPageCount = numberOfPagesInput.value;
+    
+    if (isBookReadInput.checked) {
+        bookIsRead = true;
+    }
+    else {}
+
+    bookArr.push(new Book(fetchedBookTitle, fetchedBookAuthor, fetchedPageCount, bookIsRead));
+
+}
