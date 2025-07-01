@@ -11,7 +11,7 @@ submitFormButton = document.querySelector(".submitBook")
 bookTitleInput = document.querySelector("#bookTitle");
 bookAuthorInput = document.querySelector("#bookAuthor");
 numberOfPagesInput = document.querySelector("#noOfPages");
-isBookReadInput = document.querySelector("input[name = 'hasUserRead'");
+isBookReadInput = document.querySelector("#userRead");
 
 
 
@@ -33,10 +33,18 @@ function Book(title, author, numberOfPages, isRead) {
 // }
 
 submitFormButton.addEventListener("click", function() {
+        let bookIsRead = false;
+        let fetchedBookTitle = bookTitleInput.value;
+        let fetchedBookAuthor = bookAuthorInput.value;
+        let fetchedPageCount = numberOfPagesInput.value;
+    
+        if (isBookReadInput.checked) {
+            bookIsRead = true;
+    }
+        else {}
 
-    console.log(bookTitleInput.value)
-    console.log(bookAuthorInput.value)
-    console.log(numberOfPagesInput.value)
-    console.log(isBookReadInput.value)
+    var1 = new Book(fetchedBookTitle, fetchedBookAuthor, fetchedPageCount, bookIsRead);
+
+    console.log(var1)
 
 });
