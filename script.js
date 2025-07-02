@@ -18,6 +18,10 @@ isBookReadInput = document.querySelector("#userRead");
 
 libraryTable = document.querySelector("table");
 
+allDeleteButtons = document.querySelectorAll(".deleteRowButton");
+
+
+
 
 
 revealBookFormButton.addEventListener("click", function () {
@@ -62,45 +66,46 @@ function addBookToLibrary(uniqueId) {
 
     bookArr.push(new Book(uniqueId, fetchedBookTitle, fetchedBookAuthor, fetchedPageCount, bookIsRead));
 
+    // insert unique row, 
 
-    let newRow = libraryTable.insertRow(counter);
+    let newRow = libraryTable.insertRow(1);
     newRow.classList.add("row" + counter.toString());
-    counter++;
     
     let lastObjToArr = Object.values(bookArr[bookArr.length-1]);
    
-
+    //insert each object item from the latest book to table
     
     lastObjToArr.forEach((item) => {
-        
-        if (bookIsRead) {
-            bookIsRead = "Yes"
-        }
-        else {
-            bookIsRead = "No"
-        }
-        
 
         newCell = newRow.insertCell(i);
         newCell.innerHTML = item;
         i++
     });
-    
-    // for (i = 0; i <= 4; i++) {
-    //     newCell = newRow.insertCell(i);
-    //     newCell.innerHTML = fetchedBookTitle;
-    // }
 
-    // Create empty data Cells
-    // create unique row with unique class? make like 5 td in it, and then iteratively add the items one by 1
-    // Loop to add to table
+        newCell = newRow.insertCell(-1);
+        deleteButton = document.createElement("button");
 
-    // with unique classes, it will be easy to remove an entire row for example,
+        deleteButton.classList.add("row" + counter.toString());
+        deleteButton.classList.add("deleteRowButton")
+        deleteButton.setAttribute("type", "button")
+        counter++;
+        newCell.appendChild(deleteButton);
+                
+        deleteButton.addEventListener("click", function() {
 
-    // insertrow() at 0 (always at top) (have a separate counter that counts the number of rows used to give them unique class names)
-    // will make easier to delete
-    // insert cell for items in object, i.e. create cell with cell index = item.count-1 and insert item property.value into said cell.
-}
+            deleteButtonRow = deleteButton.classList[0]
+            elementsToDelete = document.getElementsByClassName(deleteButtonRow);
+            elementsToDelete[0].remove();
+        
+          
+        })
+        
+       
+
+    }
+
+
+
 
 function createUniqueId() {
     let uniqueId = self.crypto.randomUUID();
