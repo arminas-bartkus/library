@@ -59,17 +59,19 @@ function addBookToLibrary(uniqueId) {
     let fetchedBookAuthor = bookAuthorInput.value;
     let fetchedPageCount = numberOfPagesInput.value;
     
-    if (isBookReadInput.checked) {
-        bookIsRead = "Yes"
-    }
-    else {bookIsRead = "No"}
+        bookIsRead = document.createElement('input');
+        bookIsRead.setAttribute("type", "checkbox");
+        bookIsRead.setAttribute("name", "readCheckbox");
 
+    if (!isBookReadInput.checked) {
+         bookIsRead.value = "off";
+    }
+ 
     bookArr.push(new Book(uniqueId, fetchedBookTitle, fetchedBookAuthor, fetchedPageCount, bookIsRead));
 
     // insert unique row, 
 
     let newRow = libraryTable.insertRow(1);
-    newRow.classList.add("row" + counter.toString());
     
     let lastObjToArr = Object.values(bookArr[bookArr.length-1]);
    
@@ -77,22 +79,43 @@ function addBookToLibrary(uniqueId) {
     
     lastObjToArr.forEach((item) => {
 
-        newCell = newRow.insertCell(i);
-        newCell.innerHTML = item;
-        i++
+        if (item.name === "readCheckbox") {
+            newCell = newRow.insertCell(i);
+
+            if (item.value === "on") {
+                
+                item.checked = true;
+                newCell.appendChild(item);
+                i++
+            }
+            else {
+                newCell.appendChild(item);
+                i++
+            }
+
+           
+        }
+        
+        else {
+            newCell = newRow.insertCell(i);
+            newCell.innerHTML = item;
+            i++
+             
+        }
     });
 
         newCell = newRow.insertCell(-1);
-        deleteButton = document.createElement("button");
 
-        deleteButton.classList.add("row" + counter.toString());
+        deleteButton = document.createElement("button");
         deleteButton.classList.add("deleteRowButton")
         deleteButton.setAttribute("type", "button")
-        counter++;
+       
         newCell.appendChild(deleteButton);
         
         allDeleteButtons = document.querySelectorAll(".deleteRowButton");
         addDeleteListeners()
+
+        counter++;
 
     }
 
