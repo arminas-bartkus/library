@@ -1,6 +1,6 @@
 let bookArr = [];
 let counter = 1;  
-
+let allDeleteButtons = "";
 revealBookFormButton = document.querySelector(".addBook");
 addBookForm = document.querySelector(".addBookForm");
 
@@ -18,7 +18,7 @@ isBookReadInput = document.querySelector("#userRead");
 
 libraryTable = document.querySelector("table");
 
-allDeleteButtons = document.querySelectorAll(".deleteRowButton");
+
 
 
 
@@ -90,21 +90,23 @@ function addBookToLibrary(uniqueId) {
         deleteButton.setAttribute("type", "button")
         counter++;
         newCell.appendChild(deleteButton);
-                
-        deleteButton.addEventListener("click", function() {
-
-            deleteButtonRow = deleteButton.classList[0]
-            elementsToDelete = document.getElementsByClassName(deleteButtonRow);
-            elementsToDelete[0].remove();
         
-          
-        })
-        
-       
+        allDeleteButtons = document.querySelectorAll(".deleteRowButton");
+        addDeleteListeners()
 
     }
 
+function addDeleteListeners() {
+    
+    let tempBtnArray = Array.from(allDeleteButtons);
+    let tempBtn = tempBtnArray[0];
 
+    tempBtn.addEventListener("click", function() {
+        tempBtn.parentElement.parentElement.remove();
+    })
+
+
+}
 
 
 function createUniqueId() {
