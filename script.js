@@ -70,7 +70,7 @@ function addBookToLibrary(uniqueId) {
 
             newCell = newRow.insertCell(i);
 
-        if (item === true) {
+        if (item === true || item === false) {
             const readCheckbox = document.createElement("input");
             readCheckbox.type = "checkbox";
             readCheckbox.checked = item;
