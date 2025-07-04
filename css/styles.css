@@ -1,9 +1,275 @@
+:root {
+
+    --brown-1: #d2a56d;
+    --brown-2: #ce8b54;
+    --brown-3: #bd7e4a;
+    --brown-4: #96613d;
+    --brown-5: #83502e;
+}
+
+
 table {
     border-collapse: collapse;
     margin: 10px;
+    min-width: 900px;
+    border: solid var(--brown-3);
+    background-color: var(--brown-3);
+    color: whitesmoke;
 }
 
 th, td {
-    border: solid black;
+    padding: 10px 15px;
+  
+}
+
+.headerRow {
+    border-bottom: solid var(--brown-3);
+    cursor: default;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--brown-2);
+}
+tr:nth-child(even) {
+    background-color: var(--brown-4);
+}
+thead .headerRow {
+    font-size: 1.5rem;
+    background-color: var(--brown-5);
+}
+body {
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background: url(../img/jonathan-francisca-BpbkLACP64M-unsplash.jpg);
+    background-size: 100%;
+}
+
+.deleteButtonCell {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+
+    
+}
+
+.deleteRowButton {
+    background: url(../icons/close.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    border: none;
+    position: relative;
+    top: 2px;
+    left: 25px;
+}
+
+.deleteRowButton:hover {
+    background: url(../icons/close-red.png);
+    background-size: 20px;
+    height: 20px;
+}
+
+.pageCell {
+    width: 150px;
+}
+
+.titleCell, .authorCell {
+    width: 200px;
+    flex: 0;
+}
+
+.idCell {
+    width: 350px;
+    flex: 0;
+}
+
+.readCell {
+    width: 50px;
+    flex: 0;
+}
+
+.checkboxCell > input {
+    display: grid;
+    justify-self: center;
+    place-content: center   ;
+    
+    appearance: none;
+    font: inherit;
+
+    color: var(--brown-5);
+    max-width: 2em;
+    min-width: 2em;
+    min-height: 2em;
+    max-height: 2em;
+    border: 0.2em solid var(--brown-5);
+    border-radius: 0.6em;
+
+}
+
+.checkboxCell > input::before {
+  content: "";
+  width: 1.25em;
+  height: 1.25em;
+  transform: scale(0);
+  border-radius: 5px;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1.25em 1.25em whitesmoke;
+  transform-origin: bottom left;
+  clip-path: polygon(81% 0, 100% 14%, 42% 100%, 0 57%, 15% 41%, 40% 67%);
+
+}
+
+.checkboxCell > input:checked::before {
+    transform: scale(1);
+}
+
+
+.checkboxCell {
+    max-width: 20px;
+    flex: 0;
+    border-right: solid var(--brown-3);
+    padding: 0;
+}
+.textCells {
+    text-align: center;
+    border-right: solid var(--brown-3);
+    font-weight: bold;
+}
+
+dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-inline: auto; 
+    width: fit-content;
+    top: 20%;
+    background-color: var(--brown-5);
+    border-radius: 20px;
+    border-color: var(--brown-3);
+}
+
+dialog input {
+    background-color: var(--brown-3);
+    border-radius: 20px;
+    border: solid 2px;
+    padding: 2px 6px;
+    color: whitesmoke;
+    font-weight: bold;
+    width: max-content;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+dialog input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    
+}
+
+dialog label {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.3rem;
+    align-self: start;
+
+    position: relative;
+    left: 10px;
+    margin-bottom: 1px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+fieldset {
+    width: 200px;
+    margin: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+fieldset > input {
+ 
+    width: 20px;
+    position: relative;
+    top: 6px;
+    left: -2px;
+    background-color: var(--brown-5);
+    appearance: none;
+    height: 20px;
+}
+
+fieldset > input:checked {
+    background-color: var(--brown-1);
+}
+
+fieldset > input:hover {
+    cursor: pointer;
+}
+legend {
+    background-color: var(--brown-1);
+    border-radius: 20px;
+    padding: 0 8px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: solid whitesmoke;
+
+}
+
+
+.addBook, dialog button {
+    background-color: var(--brown-4);
+    border: solid var(--brown-2);
+    border-radius: 30px;
     padding: 10px;
+    color: whitesmoke;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+}
+
+.addBook:hover, dialog button:hover {
+    cursor: pointer;
+    background-color: var(--brown-1);
+}
+
+h1 {
+    font-size: 5rem;
+    color: whitesmoke;
+    font-style: italic;
+    cursor: default;
+}
+
+dialog::backdrop {
+  
+  backdrop-filter: blur(3px);
+}
+
+p {
+    position: absolute;
+    top: 93.5%;
+    backdrop-filter: blur(30px);
+    font-size: 1.3rem;
+    padding: 3px 10px;
+    border-radius: 10px;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
 }

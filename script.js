@@ -72,20 +72,21 @@ function addBookToLibrary(uniqueId) {
 
         if (item === true || item === false) {
             const readCheckbox = document.createElement("input");
+            
             readCheckbox.type = "checkbox";
             readCheckbox.checked = item;
-
             readCheckbox.addEventListener("change", function() {
                 const book = bookArr.find(book => book.uniqueId === lastObjToArr[0]);
                 book.toggleRead();
             })
 
             newCell.appendChild(readCheckbox);
-            
+            newCell.setAttribute("class", "checkboxCell")
         }
 
         else {
             newCell.innerHTML = item;
+            newCell.setAttribute("class", "textCells")
         }
            
         i++
@@ -121,9 +122,7 @@ function addDeleteListeners() {
     tempBtn.addEventListener("click", function() {
         tempBtn.parentElement.parentElement.remove();
     })
-
 }
-
 function createUniqueId() {
     let uniqueId = self.crypto.randomUUID();
     return uniqueId;

@@ -16,34 +16,26 @@
     
     <h1>The Library</h1>
     
-    <button class = "addBook" type = "button">Add to the Collection</button>
-
-   
-
-
+    <button class = "addBook" type = "button">Add Book</button>
 
     <table>
 
         <thead>
-            <tr>
-                <th scope = "col">Book ID:</th>
-                <th scope = "col">Book Title:</th>
-                <th scope = "col">Author:</th>
-                <th scope = "col">Number of Pages:</th>
-                <th scope = "col">Read?</th>
+            <tr class="headerRow">
+                <th scope = "col" class="idCell">Book ID:</th>
+                <th scope = "col" class="titleCell">Book Title:</th>
+                <th scope = "col" class="authorCell">Author:</th>
+                <th scope = "col" class="pageCell">Number of Pages:</th>
+                <th scope = "col" class="readCell">Read?</th>
+                <th scope = "col" class="readCell">Delete Cell?</th>
             </tr>
-
         </thead>
 
-        <tbody>
-    
-        </tbody>
-
+        <tbody></tbody>
 
     </table>
 
-
-     <dialog class="addBookForm">
+    <dialog class="addBookForm">
     
         <form method="dialog">
         
@@ -64,12 +56,14 @@
 
                 <label for="userNotRead">No</label>
                 <input type="radio" id = "userNotRead" name="hasUserRead">
+
             </fieldset>
 
-        <button class = "submitBook" type="submit">Add Book</button>
+            <button class = "submitBook" type="submit">Add Book</button>
+
         </form>
-
-
     </dialog>
+
+    <p>Photo by&nbsp;<a href="https://unsplash.com/@jonathan_francisca?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"> Jonathan Francisca </a>&nbsp;on&nbsp;<a href="https://unsplash.com/photos/brown-and-blue-desk-globe-in-library-BpbkLACP64M?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
 </body>
 </html>
