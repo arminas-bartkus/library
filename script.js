@@ -26,20 +26,20 @@ revealBookFormButton.addEventListener("click", function () {
     addBookForm.showModal();
 });
 
+class Book {
 
-function Book(uniqueId, title, author, numberOfPages, isRead) {
-    
-    this.uniqueId = uniqueId;
-    this.title  = title;
-    this.author = author;
-    this.numberOfPages = numberOfPages;
-    this.isRead = isRead;
+    constructor(uniqueId, title, author, numberOfPages, isRead) {
+        
+        this.uniqueId = uniqueId;
+        this.title = title;
+        this.author = author;
+        this.numberOfPages = numberOfPages;
+        this.isRead = isRead;
+    }
 
-}
-
-Book.prototype.toggleRead = function () {
-    this.isRead = !this.isRead;
-  
+    toggleRead() {
+        this.isRead = !this.isRead;
+    }
 }
 
 submitFormButton.addEventListener("click", function() {
